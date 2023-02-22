@@ -1,0 +1,42 @@
+.task-container {
+  width: 90%;
+  height: 50px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.task{
+  font-size: 18px;
+  display: inline-flex;
+}
+
+.title {
+  text-decoration: line-through;
+}
+
+%task__button {
+  border: 1px solid #3b353e; 
+  width: 5px;
+  height: 14px;
+  margin: 5px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.task__button--active {
+  @extend %task__button;
+  background: rgb(234, 210, 245);
+}
+.task__button--basic {
+  @extend %task__button;
+  background: white;
+}
+
+.task__delete-button{
+  float: right;
+  margin-left: auto
+}

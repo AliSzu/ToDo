@@ -1,33 +1,28 @@
-import React from 'react';
-import './App.css';
-import Card from './components/card/card';
-import Bar from './components/bar/bar';
-import Tasks from './components/tasks/tasks';
-import { Task } from './types/task';
+import React, { useState } from "react";
+import "./App.scss";
+import NewTask from "./components/NewItems/NewTask/NewTask";
+import Tasks from "./components/Tasks/Tasks";
+import { Task } from "./types/task";
 
 const DUMMY_TASKS: Task[] = [
-  {title: 'test',
-    status: 'complete'},
-    {title: 'test2',
-    status: 'imcomplete'},
-    {title: 'test2',
-    status: 'imcomplete'},
-    {title: 'test2',
-    status: 'imcomplete'},
-    {title: 'test2',
-    status: 'imcomplete'},
-    {title: 'test2',
-    status: 'imcomplete'},
-
-]
+  { title: "test", status: "complete", id:1 },
+  { title: "test2", status: "imcomplete", id:2 },
+];
 
 function App() {
+  const [tasks, setTasks] = useState(DUMMY_TASKS);
+
+  const addTasksHandler = (task: Task) => {
+    setTasks((prevTasks) => {
+      return [task, ...prevTasks];
+    });
+  };
   return (
-    <div className='background'>
-      <div className='container'>
-      <Bar></Bar>
-      <Tasks tasks={DUMMY_TASKS}></Tasks>
-    </div>
+    <div className="background">
+      <div className="container">
+        <NewTask onAddTask={addTasksHandler}></NewTask>
+        <Tasks tasks={tasks}></Tasks>
+      </div>
     </div>
   );
 }

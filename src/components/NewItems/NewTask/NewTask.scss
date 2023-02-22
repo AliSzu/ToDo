@@ -1,0 +1,22 @@
+.bar {
+    width: 500px;
+    height: 80px;
+    background-color: rgb(234, 210, 245);
+    margin-bottom: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar__button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
+    background: rgb(211, 135, 255);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}

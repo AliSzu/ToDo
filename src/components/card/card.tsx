@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import "./card.css"
+import "./Card.scss"
 
 
 interface ICardProps {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Card from '../card/card';
-import "./tasks.css"
+import Card from '../Card/Card';
+import "./Tasks.scss"
 import TaskItem from '../TaskItem/TaskItem';
 import { Task } from '../../types/task';
 
@@ -11,9 +11,11 @@ interface ITasksProps {
 
 const Tasks: FC<ITasksProps> = ({tasks}) => {
   return (
+    <div className='container'>
     <Card className='tasks-container'>
-      {tasks.map((item) => <TaskItem task={item}></TaskItem>)}
+      {tasks.map((item) => <TaskItem task={item} key={item.id}></TaskItem>)}
     </Card>
+    </div>
   )
 }
 

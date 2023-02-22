@@ -1,25 +1,29 @@
 import React, { FC, useState } from "react";
 import { Task } from "../../types/task";
-import "./TaskItem.css";
+import "./TaskItem.scss";
 
-interface TaskItemProps {
+interface ITaskItemProps {
   task: Task;
 }
 
-const TaskItem: FC<TaskItemProps> = ({ task }) => {
-  const [active, setActive] = useState(false);
-  let btn_class = active ? "buttonActive" : "buttonDeactive";
+const TaskItem: FC<ITaskItemProps> = ({ task}) => {
+  const [isActive, setIsActive] = useState(false);
+  let btn_class = isActive ? "task__button--active" : "task__button--basic";
+
+  const deleteTaskHandler = () => {
+  }
 
   return (
-    <div className="task" onClick={() => setActive(active ? false : true)}>
-      <button
-        className={btn_class}
-      />
-      {active ? (
+    <div className="task-container">
+      <div className="task" onClick={() => setIsActive(isActive ? false : true)}>
+      <button className={btn_class} />
+      {isActive ? (
         <div className="title">{task.title}</div>
       ) : (
         <div>{task.title}</div>
       )}
+      </div>
+      <button className="task__delete-button">DELETE</button>
     </div>
   );
 };
