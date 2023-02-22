@@ -1,0 +1,33 @@
+.task {
+  font-size: 18px;
+  width: 90%;
+  height: 50px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.title{
+  text-decoration: line-through;
+}
+
+button {
+    border: 1px solid #3b353e; /* Green */
+    width: 5px;
+    height: 14px;
+    margin: 5px;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+
+.buttonActive {
+    background:rgb(234, 210, 245);
+}
+
+.buttonDeactive {
+    background: white; 
+}
+
+
