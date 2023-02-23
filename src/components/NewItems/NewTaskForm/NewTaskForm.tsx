@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { Task } from "../../../types/task";
 import "./NewTaskForm.scss";
+import { Status } from "../../../types/status";
 
 interface ITaskFormProps {
   onSaveTask: (params: Task) => void;
@@ -14,7 +15,7 @@ const TaskForm: FC<ITaskFormProps> = ({ onSaveTask }) => {
     if (taskName !== "") {
       const task: Task = {
         title: taskName,
-        status: "test",
+        status: Status.Incomplete,
         id: Math.random(),
       };
       onSaveTask(task);
