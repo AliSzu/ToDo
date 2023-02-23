@@ -18,7 +18,6 @@ const NewTask: FC<INewTaskProps> = ({onAddTask}) => {
   return(
     <Card className='bar'>
       <NewTaskForm onSaveTask={saveTaskHandler}></NewTaskForm>
-      <button className='bar__button'>+</button>
     </Card>
   )
 }

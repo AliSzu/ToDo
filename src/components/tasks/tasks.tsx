@@ -1,22 +1,27 @@
-import React, { FC } from 'react';
-import Card from '../Card/Card';
-import "./Tasks.scss"
-import TaskItem from '../TaskItem/TaskItem';
-import { Task } from '../../types/task';
-
+import React, { FC, useState } from "react";
+import Card from "../Card/Card";
+import "./Tasks.scss";
+import { Task } from "../../types/task";
+import TaskItem from "../TaskItem/TaskItem";
 
 interface ITasksProps {
-  tasks: Task[]
+  tasksList: Task[];
+  onSaveId: (params: number) => void;
 }
 
-const Tasks: FC<ITasksProps> = ({tasks}) => {
+const Tasks: FC<ITasksProps> = ({ tasksList, onSaveId }) => {
+
   return (
-    <div className='container'>
-    <Card className='tasks-container'>
-      {tasks.map((item) => <TaskItem task={item} key={item.id}></TaskItem>)}
-    </Card>
-    </div>
-  )
-}
+      <Card className="tasks-container">
+        {tasksList.map((item) => (
+          <TaskItem
+          onDeleteTask={(id:number) => (onSaveId(id))}
+            task={item}
+            key={item.id}
+          ></TaskItem>
+        ))}
+      </Card>
+  );
+};
 
 export default Tasks;

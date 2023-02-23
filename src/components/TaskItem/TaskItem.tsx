@@ -1,17 +1,16 @@
 import React, { FC, useState } from "react";
 import { Task } from "../../types/task";
 import "./TaskItem.scss";
+import image from '../../assets/trash-icon.png'
 
 interface ITaskItemProps {
   task: Task;
+  onDeleteTask: (params: number) => void
 }
 
-const TaskItem: FC<ITaskItemProps> = ({ task}) => {
+const TaskItem: FC<ITaskItemProps> = ({ task, onDeleteTask }) => {
   const [isActive, setIsActive] = useState(false);
   let btn_class = isActive ? "task__button--active" : "task__button--basic";
-
-  const deleteTaskHandler = () => {
-  }
 
   return (
     <div className="task-container">
@@ -23,7 +22,7 @@ const TaskItem: FC<ITaskItemProps> = ({ task}) => {
         <div>{task.title}</div>
       )}
       </div>
-      <button className="task__delete-button">DELETE</button>
+      <img src={image} className="task__delete-button" onClick={() => (onDeleteTask(task.id))}/>
     </div>
   );
 };

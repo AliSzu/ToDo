@@ -6,24 +6,31 @@ interface ITaskFormProps {
   onSaveTask: (params: Task) => void;
 }
 
-const TaskForm: FC<ITaskFormProps> = ({onSaveTask}) => {
-  const [taskName, setTaskName] = useState('');
+const TaskForm: FC<ITaskFormProps> = ({ onSaveTask }) => {
+  const [taskName, setTaskName] = useState("");
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const task: Task = {
-      title: taskName,
-      status: 'test',
-      id: Math.random()
-    };
-    onSaveTask(task);
-    setTaskName('');
-  }
+    if (taskName !== "") {
+      const task: Task = {
+        title: taskName,
+        status: "test",
+        id: Math.random(),
+      };
+      onSaveTask(task);
+      setTaskName("");
+    }
+  };
 
   return (
     <form onSubmit={submitHandler}>
-      <input className="form__field" type="text" value={taskName}
-            onChange={(event) => setTaskName(event.target.value)} />
+      <input
+        className="form__field"
+        placeholder="Add your own ToDo's!"
+        type="text"
+        value={taskName}
+        onChange={(event) => setTaskName(event.target.value)}
+      />
     </form>
   );
 };

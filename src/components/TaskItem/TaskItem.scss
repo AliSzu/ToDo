@@ -1,6 +1,6 @@
 .task-container {
-  width: 90%;
-  height: 50px;
+  min-width: 90%;
+  min-height: 50px;
   margin: 5px;
   display: flex;
   justify-content: center;
@@ -12,6 +12,7 @@
 .task{
   font-size: 18px;
   display: inline-flex;
+  cursor: pointer;
 }
 
 .title {
@@ -25,6 +26,7 @@
   margin: 5px;
   border-radius: 50%;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .task__button--active {
@@ -38,5 +40,13 @@
 
 .task__delete-button{
   float: right;
-  margin-left: auto
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.task__delete-button:hover {
+  opacity: 50%;
+  cursor: pointer;
 }

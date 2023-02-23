@@ -17,11 +17,17 @@ function App() {
       return [task, ...prevTasks];
     });
   };
+
+  const deleteIdHandler = (id: number) => {
+    const filteredTasks: Task[] = tasks.filter((task) => {return task.id !== id;});
+    setTasks(filteredTasks);
+  }
+  
   return (
     <div className="background">
       <div className="container">
         <NewTask onAddTask={addTasksHandler}></NewTask>
-        <Tasks tasks={tasks}></Tasks>
+        <Tasks onSaveId={deleteIdHandler} tasksList={tasks}></Tasks>
       </div>
     </div>
   );
