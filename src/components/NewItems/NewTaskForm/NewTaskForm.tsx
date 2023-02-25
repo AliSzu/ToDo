@@ -23,6 +23,10 @@ const TaskForm: FC<ITaskFormProps> = ({ onSaveTask }) => {
     }
   };
 
+  const blabla = (event: any) => {
+    console.log(event.target.value)
+  }
+
   return (
     <form onSubmit={submitHandler}>
       <input

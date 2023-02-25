@@ -11,8 +11,9 @@ interface ITaskItemProps {
 
 const TaskItem: FC<ITaskItemProps> = ({ task, onDeleteTask }) => {
   const [isComplete, setIsComplete] = useState(task.status === Status.Complete)
-  let btn_class = isComplete ? "task__button--active" : "task__button--basic";
 
+  let btn_class = isComplete ? "task__button--active" : "task__button--basic";
+  isComplete ? task.status = Status.Complete : task.status = Status.Incomplete;
   return (
     <div className="task-container">
       <div className="task" onClick={() => setIsComplete(isComplete ? false : true)}>
