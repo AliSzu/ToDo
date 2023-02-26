@@ -12,11 +12,9 @@ interface ITasksProps {
 }
 
 const Tasks: FC<ITasksProps> = ({ tasksList, onSaveId}) => {
-  const[status, setStatus] = useState('All')
 
   return (
       <Card className="tasks-container">
-        <TaskFilter selectedStatus={status} onFilterTask={(status: string) => setStatus(status)}></TaskFilter>
         {tasksList.map((item) => (
           <TaskItem
           onDeleteTask={(id:number) => (onSaveId(id))}

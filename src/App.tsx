@@ -24,19 +24,12 @@ function App() {
     const filteredTasks: Task[] = tasks.filter((task) => {return task.id !== deleteId});
     setTasks(filteredTasks);
   }, [deleteId]);
-
-  const deleteIdHandler = (id: number) => {
-    setDeleteId(id);
-
-    //const filteredTasks: Task[] = tasks.filter((task) => {return task.id !== deleteId});
-    //setTasks(filteredTasks);
-  };
-
+  
   return (
     <div className="background">
       <div className="container">
         <NewTask onAddTask={addTasksHandler}></NewTask>
-        <Tasks onSaveId={deleteIdHandler} tasksList={tasks}></Tasks>
+        <Tasks onSaveId={(id:number) => setDeleteId(id)} tasksList={tasks}></Tasks>
       </div>
     </div>
   );
